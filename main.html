@@ -52,7 +52,7 @@
         </div>
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="text" class="form-control" name="Emailr">
+            <input type="text" class="form-control" name="Email">
         </div>
         <div class="form-group">
             <label for="Address_1">Address 1</label>
@@ -85,20 +85,41 @@
     <!--Scripts -->
     <script>
         $(document).ready(function() {
-
-            $("#submit_query").click(function() {
-                $.ajax({
-                    url: "/process.php",
-                    method: "post",
-                    async: false,
-                    data: {
-                        refresh: "very yes"
-                    }
-                });
-
-                //  $("#myForm").submit(); // Submit the form
-            });
+            
+            var form = $('#myForm')[0];
+            var data = new FormData(form);
+            $.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: "/process.php",
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 800000,
+            success: function (data) {
+ 
+                $("#output").text(data);
+                console.log("SUCCESS : ", data);
+                $("#submit_query").prop("disabled", false);
+ 
+            },
+            error: function (e) {
+ 
+                $("#output").text(e.responseText);
+                console.log("ERROR : ", e);
+                $("#submit_query").prop("disabled", false);
+ 
+            }
         });
+ 
+    });
+
+
+
+            
+        
+        
     </script>
     <!--Scripts -->
 </footer>
