@@ -26,16 +26,19 @@ if (isset($_POST['first_name'])){
     $query1 = "INSERT INTO users(first_name, surname, nationality) VALUES ('{$first_name}', '{$surname}', '{$nationality}') ";
     $query2 = "INSERT INTO user_details(user_id, address_line_1, address_line_2, telephone, e_mail) VALUES ('{$user_id}', '{$address_line_1}', '{$address_line_2}', '{$telephone}', '{$e_mail}' ) ";
 
-    $create_post_query_1 = mysqli_query($connection,$query1);
-    if(!$create_post_query_1){
-        die("QUERY FAILURE: ". mysqli_error($connection));
-    }
+    $mquery = "INSERT INTO users(first_name, surname, nationality) VALUES ('{$first_name}', '{$surname}', '{$nationality}'); INSERT INTO user_details(user_id, address_line_1, address_line_2, telephone, e_mail) VALUES ('{$user_id}', '{$address_line_1}', '{$address_line_2}', '{$telephone}', '{$e_mail}' );";
+    // $create_post_query_1 = mysqli_query($connection,$query1);
+    // if(!$create_post_query_1){
+    //     die("QUERY FAILURE: ". mysqli_error($connection));
+    // }
 
-    $create_post_query_2 = mysqli_query($connection,$query2);
-    if(!$create_post_query_1){
-        die("QUERY FAILURE: ". mysqli_error($connection));
-    }
+    // $create_post_query_2 = mysqli_query($connection,$query2);
+    // if(!$create_post_query_1){
+    //     die("QUERY FAILURE: ". mysqli_error($connection));
+    // }
 
+    $create_multi_query = mysqli_multi_query($connection, $mquery);
+    
 
 
 }
