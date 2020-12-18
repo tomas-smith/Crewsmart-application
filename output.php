@@ -16,21 +16,33 @@ if (!$results) {
     die("QUERY FAILURE: " . mysqli_error($connection));
 }
 
-echo "<table>";
+
 
 while ($row = mysqli_fetch_array($results)) {
     echo "<tr>";
     echo "<td>" . $row['first_name'] . "</td>";
     echo "<td>" . $row['surname'] . "</td>";
     echo "<td>" . $row['nationality'] . "</td>";
-    echo "<td>" . $row['address_line_1'] . "</td>";
-    echo "<td>" . $row['address_line_2'] . "</td>";
-    echo "<td>" . $row['telephone'] . "</td>";
-    echo "<td>" . $row['e_mail'] . "</td>";
+
+    echo "<td>";
+    echo "<div class='dropdown'>";
+    echo "<a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink1'
+                        data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>";
+    echo    "<i class='far fa-cog'></i> </a>";
+    echo " <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>";
+    echo    "<a class='dropdown-item' href='#'>Address: $row[address_line_1]</a>";
+    echo    "<a class='dropdown-item' href='#'>$row[address_line_2]</a>";
+
+    echo    "<a class='dropdown-item' href='#'> Telephone number: $row[telephone]</a>";
+    echo    "<a class='dropdown-item' href='#'> Email: $row[e_mail]</a>";
+
+    echo "    </div>";
+    echo " </div>";
+    echo "  </td>";
 
     echo "</tr>";
 }
-echo "</table>";
+
 
 
 
