@@ -29,7 +29,7 @@ if (isset($_POST['first_name'])) {
     }
 
     $last_id = mysqli_insert_id($connection);
-    print($last_id);
+  
 
     $query2 = "INSERT INTO users_details(user_id, address_line_1, address_line_2, telephone, e_mail) VALUES ('{$last_id}', '{$address_line_1}', '{$address_line_2}', '{$telephone}', '{$e_mail}' ) ";
 
