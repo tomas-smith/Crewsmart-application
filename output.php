@@ -8,20 +8,19 @@ if ($connection) {
 }
 ?>
 
-<?php 
+<?php
 
 $query = 'SELECT * FROM users';
-$results = mysqli_query($connection,$query);
+$results = mysqli_query($connection, $query);
 
 echo "<table>";
 
-while($row = mysqli_fetch_array($results)) {
-  echo"<tr>";
-  echo "<td>" . $row['first_name'] . "</td>";
-  echo "<td>" . $row['surname'] . "</td>";
-  echo "<td>" . $row['nationality'] . "</td>";
-  echo"</tr>";
-  
+while ($row = mysqli_fetch_array($results)) {
+    echo "<tr>";
+    echo "<td>" . $row['first_name'] . "</td>";
+    echo "<td>" . $row['surname'] . "</td>";
+    echo "<td>" . $row['nationality'] . "</td>";
+    echo "</tr>";
 }
 echo "</table>";
 
