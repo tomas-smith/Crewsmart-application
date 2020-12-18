@@ -7,9 +7,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+        <title>Document</title>
 
     <nav class="navbar navbar-expand-sm bg-light">
         <ul class="navbar-nav">
@@ -24,7 +30,7 @@
         </ul>
     </nav>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </head>
 
 <body>
@@ -86,47 +92,44 @@
     </div>
     <!--Scripts -->
     <script>
-        $(document).ready(function() {
-            
+        $(document).ready(function () {
+
             var form = $('#myForm')[0];
             var data = new FormData(form);
             $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            url: "/process.php",
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 800000,
-            success: function (data) {
- 
-                $("#output").text(data);
-                console.log("SUCCESS : ", data);
-                $("#submit_query").prop("disabled", false);
- 
-            },
-            error: function (e) {
- 
-                $("#output").text(e.responseText);
-                console.log("ERROR : ", e);
-                $("#submit_query").prop("disabled", false);
- 
-            }
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "/process.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 800000,
+                success: function (data) {
+
+                    $("#output").text(data);
+                    console.log("SUCCESS : ", data);
+                    $("#submit_query").prop("disabled", false);
+
+                },
+                error: function (e) {
+
+                    $("#output").text(e.responseText);
+                    console.log("ERROR : ", e);
+                    $("#submit_query").prop("disabled", false);
+
+                }
+            });
+
         });
- 
-    });
 
 
 
-            
-        
-        
+
+
+
     </script>
-    <!--Scripts -->
+    
 </footer>
 
 </html>
-<!-- Footer -->
-
-<!-- Footer -->
