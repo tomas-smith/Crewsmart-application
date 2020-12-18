@@ -4,7 +4,7 @@ $connection = mysqli_connect("localhost", "root", "", "crewsmart");
 
 //confirming connection
 if ($connection) {
-    echo "Connection status: confirmed ";
+  //  echo "Connection status: confirmed ";
 }
 ?>
 
